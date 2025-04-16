@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     TouchableOpacity,
@@ -8,19 +8,51 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const molahFontPoppinsRegular = 'Poppins-Regular';
 
-
 const LionDetailsModalComponent = ({ selectedAnimal }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
+    const [learnedPlaces, setLearnedPlaces] = useState([]);
     const styles = createPrideQuestHomeStyles(dimensions);
 
-    return (
+    // Load learnedPlaces array from AsyncStorage on mount
+    useEffect(() => {
+        const loadLearnedPlaces = async () => {
+            try {
+                const stored = await AsyncStorage.getItem('learnedPlaces');
+                if (stored !== null) {
+                    setLearnedPlaces(JSON.parse(stored));
+                }
+            } catch (error) {
+                console.error('Error loading learnedPlaces:', error);
+            }
+        };
+        loadLearnedPlaces();
+    }, []);
 
-        <SafeAreaView style={{
-            flex: 1,
-        }}>
+    // Function to toggle lion as learned
+    const toggleLearned = async () => {
+        if (!selectedAnimal) return;
+        let updatedPlaces;
+        if (learnedPlaces.includes(selectedAnimal.id)) {
+            // remove id if already in learnedPlaces
+            updatedPlaces = learnedPlaces.filter(id => id !== selectedAnimal.id);
+        } else {
+            // add id if not present
+            updatedPlaces = [...learnedPlaces, selectedAnimal.id];
+        }
+        setLearnedPlaces(updatedPlaces);
+        try {
+            await AsyncStorage.setItem('learnedPlaces', JSON.stringify(updatedPlaces));
+        } catch (error) {
+            console.error('Error saving learnedPlaces:', error);
+        }
+    };
+
+    return (
+        <SafeAreaView style={{ flex: 1 }}>
             <Text
                 style={{
                     textAlign: 'left',
@@ -30,7 +62,6 @@ const LionDetailsModalComponent = ({ selectedAnimal }) => {
                     fontWeight: 600,
                     marginLeft: dimensions.width * 0.03,
                     marginTop: dimensions.height * 0.02,
-
                 }}>
                 {selectedAnimal?.title}
             </Text>
@@ -45,46 +76,27 @@ const LionDetailsModalComponent = ({ selectedAnimal }) => {
                 resizeMode='stretch'
             />
 
-            <Text style={styles.modalPrideTitleText}>
-                🌍 Habitat
-            </Text>
-
-            <Text style={[styles.prideText, {
-                marginTop: dimensions.height * 0.01,
-            }]}>
+            <Text style={styles.modalPrideTitleText}>🌍 Habitat</Text>
+            <Text style={[styles.prideText, { marginTop: dimensions.height * 0.01 }]}>
                 {selectedAnimal?.title}
             </Text>
 
-            <Text style={styles.modalPrideTitleText}>
-                🐾 Behavior
-            </Text>
-
+            <Text style={styles.modalPrideTitleText}>🐾 Behavior</Text>
             {selectedAnimal?.behaviors.map((behavior, index) => (
-                <Text key={index} style={[styles.prideText, {
-                }]}>
+                <Text key={index} style={styles.prideText}>
                     {behavior?.behavior}
                 </Text>
             ))}
 
-
-            <Text style={styles.modalPrideTitleText}>
-                👑 Pride Structure
-            </Text>
-
+            <Text style={styles.modalPrideTitleText}>👑 Pride Structure</Text>
             {selectedAnimal?.prideStracture.map((pride, index) => (
-                <Text key={index} style={[styles.prideText, {
-                }]}>
+                <Text key={index} style={styles.prideText}>
                     {pride.pride}
                 </Text>
             ))}
 
-            <Text style={styles.modalPrideTitleText}>
-                ⚠️ Status
-            </Text>
-
-            <Text style={[styles.prideText, {
-                marginTop: dimensions.height * 0.01,
-            }]}>
+            <Text style={styles.modalPrideTitleText}>⚠️ Status</Text>
+            <Text style={[styles.prideText, { marginTop: dimensions.height * 0.01 }]}>
                 {selectedAnimal?.status}
             </Text>
 
@@ -115,29 +127,32 @@ const LionDetailsModalComponent = ({ selectedAnimal }) => {
                 />
             </View>
 
-            <TouchableOpacity style={{
-                width: dimensions.width * 0.93,
-                height: dimensions.height * 0.07,
-                backgroundColor: '#FFC81F',
-                borderRadius: dimensions.width * 0.041,
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: dimensions.height * 0.041,
-                alignSelf: 'center',
-            }}>
+            <TouchableOpacity
+                onPress={toggleLearned}
+                style={{
+                    width: dimensions.width * 0.93,
+                    height: dimensions.height * 0.07,
+                    backgroundColor: learnedPlaces.includes(selectedAnimal?.id) ? 'rgba(255, 200, 31, 0.25)' : '#FFC81F',
+                    borderRadius: dimensions.width * 0.041,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: dimensions.height * 0.041,
+                    alignSelf: 'center',
+                }}>
                 <Text
                     style={{
                         textAlign: 'left',
-                        color: 'white',
+                        color: learnedPlaces.includes(selectedAnimal?.id) ? '#FFC000' : 'white',
                         fontSize: dimensions.width * 0.05,
                         fontFamily: molahFontPoppinsRegular,
                         fontWeight: 700,
                     }}>
-                    ✅ Mark as learned
+                    {learnedPlaces.includes(selectedAnimal?.id)
+                        ? 'Marked as learned'
+                        : '✅ Mark as learned'}
                 </Text>
             </TouchableOpacity>
         </SafeAreaView>
-
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -16,11 +16,13 @@ import PingoSettingsScreen from './PingoSettingsScreen';
 import PingoHowToPlayScreen from './PingoHowToPlayScreen';
 import PingoYourMomentsScreen from './PingoYourMomentsScreen';
 import PingoGameScreen from './PingoGameScreen';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import homeAnimalsData from '../components/homeAnimalsData';
-import { ArrowLeftIcon, PlusIcon } from 'react-native-heroicons/solid';
+import { ArrowLeftIcon, PlusIcon, XMarkIcon } from 'react-native-heroicons/solid';
 import LionDetailsModalComponent from '../components/LionDetailsModalComponent';
+import AddNewLionModalComponent from '../components/AddNewLionModalComponent';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const molahFontPoppinsRegular = 'Poppins-Regular';
 const molahFontPoppinsBold = 'Poppins-Bold';
@@ -57,7 +59,27 @@ const HomePrideQuestScreen = () => {
   const [selectedPrideQuestScreen, setSelectedPrideQuestScreen] = useState('Home');
   const [prideModalVisible, setPrideModalVisible] = useState(false);
   const [selectedAnimal, setSelectedAnimal] = useState(null);
+  const [addLionModalVisible, setAddLionModalVisible] = useState(false);
   const styles = createPrideQuestHomeStyles(dimensions);
+  const [myPrides, setMyPrides] = useState([]);
+
+  useEffect(() => {
+    const loadMyPrides = async () => {
+      try {
+        const storedMyPrides = await AsyncStorage.getItem('myPrides');
+        if (storedMyPrides !== null) {
+          setMyPrides(JSON.parse(storedMyPrides));
+        }
+      } catch (error) {
+        console.error('Error loading myPride items:', error);
+      }
+    };
+
+    loadMyPrides();
+  }, [addLionModalVisible]);
+
+
+
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -159,37 +181,128 @@ const HomePrideQuestScreen = () => {
                 My Pride
               </Text>
 
-              <View style={{
-                width: dimensions.width * 0.93,
-                height: dimensions.height * 0.09,
-                backgroundColor: '#BF9539',
-                borderRadius: dimensions.width * 0.033,
-                marginTop: dimensions.height * 0.007,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    color: 'white',
-                    fontSize: dimensions.width * 0.04,
-                    fontFamily: molahFontPoppinsRegular,
-                    fontWeight: 500,
-                  }}>
-                  There are no animals in your pride yet...
-                </Text>
-              </View>
+              {myPrides.length === 0 ? (
+                <View style={{
+                  width: dimensions.width * 0.93,
+                  height: dimensions.height * 0.09,
+                  backgroundColor: '#BF9539',
+                  borderRadius: dimensions.width * 0.033,
+                  marginTop: dimensions.height * 0.007,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      color: 'white',
+                      fontSize: dimensions.width * 0.04,
+                      fontFamily: molahFontPoppinsRegular,
+                      fontWeight: 500,
+                    }}>
+                    There are no animals in your pride yet...
+                  </Text>
+                </View>
+              ) : (
+                myPrides.map((pride, index) => (
+                  <TouchableOpacity
+                    onPress={() => {
+                      setSelectedAnimal(animal);
+                      setPrideModalVisible(true);
+                    }}
+                    key={pride.id} style={{
+                      width: dimensions.width * 0.93,
+                      height: dimensions.height * 0.12,
+                      backgroundColor: '#BF9539',
+                      borderRadius: dimensions.width * 0.033,
+                      marginTop: dimensions.height * 0.007,
+                      alignItems: 'center',
+                      flexDirection: 'row',
+                      justifyContent: 'flex-start',
+                    }}>
+                    <Image
+                      source={{ uri: pride.image }}
+                      style={{
+                        width: dimensions.height * 0.12,
+                        height: dimensions.height * 0.12,
+                        borderTopLeftRadius: dimensions.width * 0.033,
+                        borderBottomLeftRadius: dimensions.width * 0.033,
+                      }}
+                      resizeMode='cover'
+                    />
+                    <View style={{
+                      flex: 1,
+                      alignItems: 'flex-start',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                      <View>
+                        <View style={{
+                          backgroundColor: '#FFC81F',
+                          borderRadius: dimensions.width * 0.5,
+                          paddingVertical: dimensions.height * 0.005,
+                          paddingHorizontal: dimensions.width * 0.035,
+                          marginTop: dimensions.height * 0.005,
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginLeft: dimensions.width * 0.04,
+                        }}>
+                          <Text
+                            style={{
+                              textAlign: 'left',
+                              color: 'white',
+                              fontSize: dimensions.width * 0.043,
+                              fontFamily: molahFontPoppinsRegular,
+                              fontWeight: 600,
 
-              <TouchableOpacity style={{
-                alignSelf: 'center',
-                width: dimensions.width * 0.15,
-                height: dimensions.width * 0.15,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: '#FFC81F',
-                borderRadius: dimensions.width * 0.1,
-                marginTop: dimensions.height * 0.015,
-              }}>
+                            }}>
+                            {pride.type}
+                          </Text>
+                        </View>
+                        <Text
+                          style={{
+                            textAlign: 'left',
+                            color: 'white',
+                            fontSize: dimensions.width * 0.05,
+                            fontFamily: molahFontPoppinsRegular,
+                            fontWeight: 600,
+                            marginLeft: dimensions.width * 0.04,
+                          }}>
+                          {pride.name}
+                        </Text>
+                      </View>
+                      <Text
+                        style={{
+                          textAlign: 'left',
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          fontSize: dimensions.width * 0.043,
+                          fontFamily: molahFontPoppinsRegular,
+                          fontWeight: 400,
+                          marginRight: dimensions.width * 0.04,
+                        }}>
+                        {pride.dateOfBirth}
+                      </Text>
+
+                    </View>
+
+                  </TouchableOpacity>
+                ))
+              )}
+
+
+              <TouchableOpacity
+                onPress={() => {
+                  setAddLionModalVisible(true);
+                }}
+                style={{
+                  alignSelf: 'center',
+                  width: dimensions.width * 0.15,
+                  height: dimensions.width * 0.15,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: '#FFC81F',
+                  borderRadius: dimensions.width * 0.1,
+                  marginTop: dimensions.height * 0.015,
+                }}>
                 <PlusIcon size={dimensions.width * 0.1} color='white' />
 
               </TouchableOpacity>
@@ -317,9 +430,45 @@ const HomePrideQuestScreen = () => {
                   paddingBottom: dimensions.height * 0.2,
                 }}
               >
-                <LionDetailsModalComponent selectedAnimal={selectedAnimal}/>
+                <LionDetailsModalComponent selectedAnimal={selectedAnimal} />
               </ScrollView>
 
+
+            </SafeAreaView>
+          </View>
+        </Modal>
+
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={addLionModalVisible}
+          onRequestClose={() => {
+            setAddLionModalVisible(!addLionModalVisible);
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <SafeAreaView style={{
+              flex: 1,
+              backgroundColor: '#967228',
+            }}>
+              <TouchableOpacity
+                onPress={() => {
+                  setAddLionModalVisible(false);
+                }}
+                style={{
+                  backgroundColor: '#FFC81F',
+                  width: dimensions.width * 0.17,
+                  height: dimensions.width * 0.17,
+                  borderRadius: dimensions.width * 0.1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  alignSelf: 'flex-start',
+                  marginLeft: dimensions.width * 0.03,
+                }}>
+                <ArrowLeftIcon size={dimensions.width * 0.09} color='white' />
+              </TouchableOpacity>
+
+              <AddNewLionModalComponent setAddLionModalVisible={setAddLionModalVisible} />
 
             </SafeAreaView>
           </View>
@@ -338,7 +487,27 @@ const createPrideQuestHomeStyles = (dimensions) => StyleSheet.create({
     fontWeight: 300,
     marginLeft: dimensions.width * 0.03,
     marginTop: dimensions.height * 0.02,
-  }
+  },
+  pridePlaceHolderViewStyles: {
+    width: dimensions.width * 0.93,
+    height: dimensions.height * 0.068,
+    backgroundColor: '#BF9539',
+    borderRadius: dimensions.width * 0.033,
+    marginTop: dimensions.height * 0.007,
+    alignSelf: 'center',
+    paddingHorizontal: dimensions.width * 0.04,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  pridePlaceHolderTextStyles: {
+    maxWidth: dimensions.width * 0.75,
+    color: 'white',
+    fontFamily: molahFontPoppinsRegular,
+    fontWeight: 600,
+    fontSize: dimensions.width * 0.04,
+    textAlign: 'left',
+  },
 });
 
 export default HomePrideQuestScreen;
