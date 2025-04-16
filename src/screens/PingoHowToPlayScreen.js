@@ -22,14 +22,14 @@ Save your game moments and watch them later.`
 const fontNunitoBlack = 'Nunito-Black';
 const fontNunitoExtraBold = 'Nunito-ExtraBold';
 
-const PingoHowToPlayScreen = ({ setSelectedPingoScreen, }) => {
+const PingoHowToPlayScreen = ({ setSelectedPrideQuestScreen, }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
 
     return (
         <SafeAreaView style={{ width: dimensions.width }}>
             <TouchableOpacity
                 onPress={() => {
-                    setSelectedPingoScreen('Home');
+                    setSelectedPrideQuestScreen('Home');
                 }}
                 style={{
                     borderRadius: dimensions.width * 0.5,

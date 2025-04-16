@@ -1,8 +1,8 @@
 import React from 'react';
-import DeepDiveStack from './StackNavigator';
+import PrideQuestStack from './StackNavigator';
 
 function App() {
-  return <DeepDiveStack />;
+  return <PrideQuestStack />;
 }
 
 export default App;

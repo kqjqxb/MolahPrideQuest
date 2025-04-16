@@ -17,7 +17,7 @@ import GradientText from '../components/GradientText';
 
 const fontNunitoBlack = 'Nunito-Black';
 
-const PingoSettingsScreen = ({ setSelectedPingoScreen, setBackgroundMusic }) => {
+const PingoSettingsScreen = ({ setSelectedPrideQuestScreen, setBackgroundMusic }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
 
     const [sounds, setSounds] = useState(false);
@@ -69,7 +69,7 @@ const PingoSettingsScreen = ({ setSelectedPingoScreen, setBackgroundMusic }) => 
         <SafeAreaView style={{ width: dimensions.width }}>
             <TouchableOpacity
                 onPress={() => {
-                    setSelectedPingoScreen('Home');
+                    setSelectedPrideQuestScreen('Home');
                 }}
                 style={{
                     borderRadius: dimensions.width * 0.5,

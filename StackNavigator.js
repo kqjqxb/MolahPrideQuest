@@ -1,18 +1,17 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import PingoHomeScreen from './src/screens/PingoHomeScreen';
-import PingoOnboardScreen from './src/screens/PingoOnboardScreen';
+import HomePrideQuestScreen from './src/screens/HomePrideQuestScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { UserProvider, UserContext } from './src/context/UserContext';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import LoadingPingoAppScreen from './src/screens/LoadingPingoAppScreen';
+import LoadingPrideQuestAppScreen from './src/screens/LoadingPrideQuestAppScreen';
 
 const Stack = createNativeStackNavigator();
 
-const DeepDiveStack = () => {
+const PrideQuestStack = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Provider store={store}>
@@ -33,14 +32,13 @@ const AppNavigator = () => {
 
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName={'LoadingPingoCoupleScreen'}>
-          <Stack.Screen name="Home" component={PingoHomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="PingoOnboardScreen" component={PingoOnboardScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="LoadingPingoCoupleScreen" component={LoadingPingoAppScreen} options={{ headerShown: false }} />
+        <Stack.Navigator initialRouteName={'LoadPrideQuestScreen'}>
+          <Stack.Screen name="Home" component={HomePrideQuestScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="LoadPrideQuestScreen" component={LoadingPrideQuestAppScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 
-export default DeepDiveStack;
+export default PrideQuestStack;

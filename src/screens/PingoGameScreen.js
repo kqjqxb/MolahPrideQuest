@@ -53,7 +53,7 @@ const balls = [
 const fontNunitoBlack = 'Nunito-Black';
 const fontNunitoRegular = 'Nunito-Regular';
 
-const PingoGameScreen = ({ setSelectedPingoScreen, setBackgroundMusic }) => {
+const PingoGameScreen = ({ setSelectedPrideQuestScreen, setBackgroundMusic }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const styles = createPingoSettingsStyles(dimensions);
 
@@ -367,7 +367,7 @@ const PingoGameScreen = ({ setSelectedPingoScreen, setBackgroundMusic }) => {
                             onPress={() => {
                                 if (isPingoGameStarted) {
                                     setPingoGameStarted(false);
-                                } else setSelectedPingoScreen('Home');
+                                } else setSelectedPrideQuestScreen('Home');
                             }}
                             style={{
                                 borderRadius: dimensions.width * 0.5,
@@ -938,7 +938,7 @@ const PingoGameScreen = ({ setSelectedPingoScreen, setBackgroundMusic }) => {
 
                                 <TouchableOpacity
                                     onPress={() => {
-                                        setSelectedPingoScreen('Home');
+                                        setSelectedPrideQuestScreen('Home');
                                     }}
                                     style={{
                                         backgroundColor: 'white',
