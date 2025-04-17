@@ -6,8 +6,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { loadUserData } from '../redux/userSlice';
 import { UserContext } from '../context/UserContext';
-import LinearGradient from 'react-native-linear-gradient';
-import Loader from '../components/Loader';
 
 const LoadingPrideQuestAppScreen = () => {
   const navigation = useNavigation();

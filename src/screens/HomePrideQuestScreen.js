@@ -10,13 +10,11 @@ import {
   Text,
   Modal,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 
-import PingoSettingsScreen from './PingoSettingsScreen';
-import PingoHowToPlayScreen from './PingoHowToPlayScreen';
-import PingoYourMomentsScreen from './PingoYourMomentsScreen';
-import MolahArticlesScreen from './MolahArticlesScreen';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import PrideSettingsScreen from './PrideSettingsScreen';
+import PrideArticlesScreen from './PrideArticlesScreen';
 
 import homeAnimalsData from '../components/homeAnimalsData';
 import { ArrowLeftIcon, PlusIcon, XMarkIcon } from 'react-native-heroicons/solid';
@@ -24,6 +22,7 @@ import LionDetailsModalComponent from '../components/LionDetailsModalComponent';
 import AddNewLionModalComponent from '../components/AddNewLionModalComponent';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PrideDetailsModalComponent from '../components/PrideDetailsModalComponent';
+import PrideGameScreen from './PrideGameScreen';
 
 const molahFontPoppinsRegular = 'Poppins-Regular';
 const molahFontPoppinsBold = 'Poppins-Bold';
@@ -326,14 +325,14 @@ const HomePrideQuestScreen = () => {
             </ScrollView>
           </SafeAreaView>
         ) : selectedPrideQuestScreen === 'PrideSettings' ? (
-          <PingoSettingsScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} selectedPrideQuestScreen={selectedPrideQuestScreen} />
-        ) : selectedPrideQuestScreen === 'PingoMoments' ? (
-          <PingoYourMomentsScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} />
-        ) : selectedPrideQuestScreen === 'PrideArticles' ? (
-          <MolahArticlesScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} prideNotificationsEnabled={prideNotificationsEnabled} setPrideNotificationsEnabled={setPrideNotificationsEnabled}
+          <PrideSettingsScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} selectedPrideQuestScreen={selectedPrideQuestScreen} 
+            prideNotificationsEnabled={prideNotificationsEnabled} setPrideNotificationsEnabled={setPrideNotificationsEnabled}
           />
-        ) : selectedPrideQuestScreen === 'PingoRules' ? (
-          <PingoHowToPlayScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} />
+        ) : selectedPrideQuestScreen === 'PrideArticles' ? (
+          <PrideArticlesScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} prideNotificationsEnabled={prideNotificationsEnabled} setPrideNotificationsEnabled={setPrideNotificationsEnabled}
+          />
+        ) : selectedPrideQuestScreen === 'PrideGame' ? (
+          <PrideGameScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} />
         ) : null}
 
 

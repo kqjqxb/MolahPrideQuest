@@ -8,17 +8,17 @@ import {
     TouchableOpacity,
     Image,
     Switch,
+    ScrollView,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import lionArticlesData from '../components/lionArticlesData';
-import MolahArticleDetailsComponent from '../components/MolahArticleDetailsComponent';
+import PrideArticleDetailsComponent from '../components/PrideArticleDetailsComponent';
 import lionDailyFactsData from '../components/lionDailyFactsData';
 import PrideFavoritesComponent from '../components/PrideFavoritesComponent';
 
 const molahFontPoppinsRegular = 'Poppins-Regular';
 
-const MolahArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEnabled,}) => {
+const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEnabled,}) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [selectedWindow, setSelectedWindow] = useState('');
@@ -177,7 +177,6 @@ const MolahArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                             </Text>
                         </View>
 
-                        {/* Notifications Section */}
                         <View style={[styles.prideFlexRowViewStyles, { marginVertical: dimensions.height * 0.03 }]}>
                             <Text
                                 style={{
@@ -291,7 +290,7 @@ const MolahArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                     </ScrollView>
                 </SafeAreaView>
             ) : selectedWindow === 'ArticleDetails' ? (
-                <MolahArticleDetailsComponent setSelectedWindow={setSelectedWindow} selectedArticle={selectedArticle} />
+                <PrideArticleDetailsComponent setSelectedWindow={setSelectedWindow} selectedArticle={selectedArticle} />
             ) : (
                 <>
                     <PrideFavoritesComponent 
@@ -309,14 +308,6 @@ const MolahArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
 };
 
 const createPrideQuestArticlesStyles = (dimensions) => StyleSheet.create({
-    gradientTextStyles: {
-        paddingHorizontal: dimensions.width * 0.05,
-        textAlign: 'center',
-        fontSize: dimensions.width * 0.05,
-        maxWidth: dimensions.width * 0.89,
-        alignSelf: 'center',
-        textTransform: 'uppercase',
-    },
     prideFlexRowViewStyles: {
         alignSelf: 'center',
         flexDirection: 'row',
@@ -326,4 +317,4 @@ const createPrideQuestArticlesStyles = (dimensions) => StyleSheet.create({
     }
 });
 
-export default MolahArticlesScreen;
+export default PrideArticlesScreen;

@@ -9,8 +9,8 @@ import {
     Image,
     Modal,
     Switch,
+    ScrollView,
 } from 'react-native';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import lionArticlesData from '../components/lionArticlesData';
 
@@ -19,7 +19,7 @@ const molahFontPoppinsBold = 'Poppins-Bold';
 const molahFontPoppinsBlack = 'Poppins-Black';
 const prideFontInterRegular = 'Inter-Regular';
 
-const MolahArticleDetailsComponent = ({ setSelectedPrideQuestScreen, setSelectedWindow, selectedArticle }) => {
+const PrideArticleDetailsComponent = ({ setSelectedPrideQuestScreen, setSelectedWindow, selectedArticle }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isFavorite, setIsFavorite] = useState(false);
@@ -210,14 +210,6 @@ const MolahArticleDetailsComponent = ({ setSelectedPrideQuestScreen, setSelected
 };
 
 const createPrideQuestSettingsStyles = (dimensions) => StyleSheet.create({
-    gradientTextStyles: {
-        paddingHorizontal: dimensions.width * 0.05,
-        textAlign: 'center',
-        fontSize: dimensions.width * 0.05,
-        maxWidth: dimensions.width * 0.89,
-        alignSelf: 'center',
-        textTransform: 'uppercase',
-    },
     prideFlexRowViewStyles: {
         alignSelf: 'center',
         flexDirection: 'row',
@@ -227,4 +219,4 @@ const createPrideQuestSettingsStyles = (dimensions) => StyleSheet.create({
     }
 });
 
-export default MolahArticleDetailsComponent;
+export default PrideArticleDetailsComponent;

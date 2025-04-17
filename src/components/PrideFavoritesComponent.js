@@ -7,9 +7,8 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
-    Switch,
+    ScrollView,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import lionArticlesData from '../components/lionArticlesData';
 import lionDailyFactsData from '../components/lionDailyFactsData';
@@ -246,14 +245,6 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
 };
 
 const createPrideQuestFavoritesStyles = (dimensions) => StyleSheet.create({
-    gradientTextStyles: {
-        paddingHorizontal: dimensions.width * 0.05,
-        textAlign: 'center',
-        fontSize: dimensions.width * 0.05,
-        maxWidth: dimensions.width * 0.89,
-        alignSelf: 'center',
-        textTransform: 'uppercase',
-    },
     prideFlexRowViewStyles: {
         alignSelf: 'center',
         flexDirection: 'row',

@@ -8,10 +8,10 @@ import {
     Text,
     StyleSheet,
     TextInput,
-    Alert, // Import Alert for error messages
+    Alert, 
+    ScrollView
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const molahFontPoppinsRegular = 'Poppins-Regular';
 
