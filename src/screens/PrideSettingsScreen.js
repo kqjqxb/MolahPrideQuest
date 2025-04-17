@@ -19,7 +19,7 @@ import { ChevronLeftIcon, ChevronRightIcon, StarIcon as SolidStarIcon } from 're
 import { StarIcon as OutlineStarIcon } from 'react-native-heroicons/outline';
 
 const fontNunitoBlack = 'Nunito-Black';
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 const molahFontPoppinsBold = 'Poppins-Bold';
 const molahFontPoppinsBlack = 'Poppins-Black';
 const prideFontInterRegular = 'Inter-Regular';
@@ -97,7 +97,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
                     fontSize: dimensions.width * 0.075,
                     alignSelf: 'flex-start',
                     marginLeft: dimensions.width * 0.04,
-                    fontFamily: molahFontPoppinsRegular,
+                    fontFamily: prideFontPoppinsRegular,
                     fontWeight: 600,
                     marginBottom: dimensions.height * 0.02,
                 }}>
@@ -122,7 +122,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
                         textAlign: 'left',
                         color: 'white',
                         fontSize: dimensions.width * 0.045,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: 500,
                     }}>
                     Notifications
@@ -143,7 +143,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
                         textAlign: 'left',
                         color: 'white',
                         fontSize: dimensions.width * 0.045,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: 500,
                     }}>
                     Privacy Policy
@@ -158,7 +158,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
                         textAlign: 'left',
                         color: 'white',
                         fontSize: dimensions.width * 0.045,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: 500,
                     }}>
                     Rate Us
@@ -194,7 +194,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
                                     textAlign: 'left',
                                     color: 'black',
                                     fontSize: dimensions.width * 0.045,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 500,
                                 }}>
                                     Close
@@ -213,7 +213,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
                                     textAlign: 'left',
                                     color: 'black',
                                     fontSize: dimensions.width * 0.045,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 500,
                                 }}>
                                     Save

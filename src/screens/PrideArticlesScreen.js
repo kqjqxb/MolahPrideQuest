@@ -16,7 +16,7 @@ import PrideArticleDetailsComponent from '../components/PrideArticleDetailsCompo
 import lionDailyFactsData from '../components/lionDailyFactsData';
 import PrideFavoritesComponent from '../components/PrideFavoritesComponent';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 
 const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEnabled,}) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -103,7 +103,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                 textAlign: 'left',
                                 color: 'white',
                                 fontSize: dimensions.width * 0.075,
-                                fontFamily: molahFontPoppinsRegular,
+                                fontFamily: prideFontPoppinsRegular,
                                 fontWeight: 600,
                             }}>
                             Articles
@@ -143,7 +143,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                         textAlign: 'left',
                                         color: 'white',
                                         fontSize: dimensions.width * 0.045,
-                                        fontFamily: molahFontPoppinsRegular,
+                                        fontFamily: prideFontPoppinsRegular,
                                         fontWeight: 500,
                                     }}>
                                     Fact of the day
@@ -169,7 +169,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                     textAlign: 'left',
                                     color: 'white',
                                     fontSize: dimensions.width * 0.04,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 400,
                                     marginTop: dimensions.height * 0.01,
                                 }}>
@@ -183,7 +183,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                     textAlign: 'left',
                                     color: 'white',
                                     fontSize: dimensions.width * 0.045,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 500,
                                 }}>
                                 Notifications
@@ -227,7 +227,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                                 textAlign: 'left',
                                                 color: 'white',
                                                 fontSize: dimensions.width * 0.04,
-                                                fontFamily: molahFontPoppinsRegular,
+                                                fontFamily: prideFontPoppinsRegular,
                                                 fontWeight: 500,
                                                 textTransform: 'uppercase',
                                             }}>
@@ -255,7 +255,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                         textAlign: 'left',
                                         color: 'white',
                                         fontSize: dimensions.width * 0.04,
-                                        fontFamily: molahFontPoppinsRegular,
+                                        fontFamily: prideFontPoppinsRegular,
                                         fontWeight: 500,
                                         marginTop: dimensions.height * 0.02,
                                     }}>

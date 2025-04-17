@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import lionArticlesData from '../components/lionArticlesData';
 import lionDailyFactsData from '../components/lionDailyFactsData';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 
 const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow, setFavorites, setSavedPrideFacts, setSelectedArticle }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -64,7 +64,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
                         textAlign: 'left',
                         color: 'white',
                         fontSize: dimensions.width * 0.075,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: 600,
                         marginRight: dimensions.width * 0.15,
                     }}>
@@ -84,7 +84,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
                         alignSelf: 'center',
                         marginTop: dimensions.height * 0.3,
                         fontSize: dimensions.width * 0.05,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: 600,
                         paddingHorizontal: dimensions.width * 0.05,
                     }}>
@@ -117,7 +117,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
                                             textAlign: 'left',
                                             color: 'white',
                                             fontSize: dimensions.width * 0.045,
-                                            fontFamily: molahFontPoppinsRegular,
+                                            fontFamily: prideFontPoppinsRegular,
                                             fontWeight: 500,
                                         }}>
                                         Fact of the Day
@@ -138,7 +138,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
                                         textAlign: 'left',
                                         color: 'white',
                                         fontSize: dimensions.width * 0.04,
-                                        fontFamily: molahFontPoppinsRegular,
+                                        fontFamily: prideFontPoppinsRegular,
                                         fontWeight: 400,
                                         marginTop: dimensions.height * 0.01,
                                     }}>
@@ -181,7 +181,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
                                                 textAlign: 'left',
                                                 color: 'white',
                                                 fontSize: dimensions.width * 0.04,
-                                                fontFamily: molahFontPoppinsRegular,
+                                                fontFamily: prideFontPoppinsRegular,
                                                 fontWeight: 500,
                                                 textTransform: 'uppercase',
                                             }}>
@@ -205,7 +205,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
                                         textAlign: 'left',
                                         color: 'white',
                                         fontSize: dimensions.width * 0.04,
-                                        fontFamily: molahFontPoppinsRegular,
+                                        fontFamily: prideFontPoppinsRegular,
                                         fontWeight: 500,
                                         marginTop: dimensions.height * 0.02,
                                     }}>

@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 
 const LionDetailsModalComponent = ({ selectedAnimal }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -58,7 +58,7 @@ const LionDetailsModalComponent = ({ selectedAnimal }) => {
                     textAlign: 'left',
                     color: 'white',
                     fontSize: dimensions.width * 0.08,
-                    fontFamily: molahFontPoppinsRegular,
+                    fontFamily: prideFontPoppinsRegular,
                     fontWeight: 600,
                     marginLeft: dimensions.width * 0.03,
                     marginTop: dimensions.height * 0.02,
@@ -144,7 +144,7 @@ const LionDetailsModalComponent = ({ selectedAnimal }) => {
                         textAlign: 'left',
                         color: learnedPlaces.includes(selectedAnimal?.id) ? '#FFC000' : 'white',
                         fontSize: dimensions.width * 0.05,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: 700,
                     }}>
                     {learnedPlaces.includes(selectedAnimal?.id)
@@ -161,7 +161,7 @@ const createPrideQuestHomeStyles = (dimensions) => StyleSheet.create({
         textAlign: 'left',
         color: 'white',
         fontSize: dimensions.width * 0.04,
-        fontFamily: molahFontPoppinsRegular,
+        fontFamily: prideFontPoppinsRegular,
         fontWeight: 300,
         marginLeft: dimensions.width * 0.03,
         marginTop: dimensions.height * 0.02,
@@ -170,7 +170,7 @@ const createPrideQuestHomeStyles = (dimensions) => StyleSheet.create({
         textAlign: 'left',
         color: 'white',
         fontSize: dimensions.width * 0.046,
-        fontFamily: molahFontPoppinsRegular,
+        fontFamily: prideFontPoppinsRegular,
         fontWeight: 600,
         marginLeft: dimensions.width * 0.03,
         marginTop: dimensions.height * 0.005,

@@ -15,7 +15,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { XMarkIcon } from 'react-native-heroicons/solid';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 const molahFontPoppinsBold = 'Poppins-Bold';
 const molahFontPoppinsBlack = 'Poppins-Black';
 
@@ -446,7 +446,7 @@ const createPrideQuestHomeStyles = (dimensions) => StyleSheet.create({
     pridePlaceHolderTextStyles: {
         maxWidth: dimensions.width * 0.75,
         color: 'white',
-        fontFamily: molahFontPoppinsRegular,
+        fontFamily: prideFontPoppinsRegular,
         fontWeight: 600,
         fontSize: dimensions.width * 0.04,
         textAlign: 'left',

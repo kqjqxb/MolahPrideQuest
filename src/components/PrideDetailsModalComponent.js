@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 
 const PrideDetailsModalComponent = ({ selectedPride, setPrideDetailsModalVisible, setSelectedPride }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -163,7 +163,7 @@ const PrideDetailsModalComponent = ({ selectedPride, setPrideDetailsModalVisible
                                 textAlign: 'left',
                                 color: 'white',
                                 fontSize: dimensions.width * 0.08,
-                                fontFamily: molahFontPoppinsRegular,
+                                fontFamily: prideFontPoppinsRegular,
                                 fontWeight: '600',
                                 marginLeft: dimensions.width * 0.03,
                                 marginTop: dimensions.height * 0.02,
@@ -223,7 +223,7 @@ const PrideDetailsModalComponent = ({ selectedPride, setPrideDetailsModalVisible
                                     textAlign: 'left',
                                     color: 'white',
                                     fontSize: dimensions.width * 0.05,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 700,
                                 }}>
                                 Save
@@ -237,7 +237,7 @@ const PrideDetailsModalComponent = ({ selectedPride, setPrideDetailsModalVisible
                                 textAlign: 'left',
                                 color: 'white',
                                 fontSize: dimensions.width * 0.08,
-                                fontFamily: molahFontPoppinsRegular,
+                                fontFamily: prideFontPoppinsRegular,
                                 fontWeight: 600,
                                 marginLeft: dimensions.width * 0.03,
                                 marginTop: dimensions.height * 0.02,
@@ -286,7 +286,7 @@ const PrideDetailsModalComponent = ({ selectedPride, setPrideDetailsModalVisible
                                     textAlign: 'left',
                                     color: 'white',
                                     fontSize: dimensions.width * 0.05,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 700,
                                 }}>
                                 Edit
@@ -309,7 +309,7 @@ const PrideDetailsModalComponent = ({ selectedPride, setPrideDetailsModalVisible
                                     textAlign: 'left',
                                     color: 'white',
                                     fontSize: dimensions.width * 0.05,
-                                    fontFamily: molahFontPoppinsRegular,
+                                    fontFamily: prideFontPoppinsRegular,
                                     fontWeight: 700,
                                 }}>
                                 Delete
@@ -328,7 +328,7 @@ const createPrideQuestHomeStyles = (dimensions) =>
             textAlign: 'left',
             color: 'white',
             fontSize: dimensions.width * 0.04,
-            fontFamily: molahFontPoppinsRegular,
+            fontFamily: prideFontPoppinsRegular,
             fontWeight: '300',
             marginLeft: dimensions.width * 0.03,
             marginTop: dimensions.height * 0.02,
@@ -337,7 +337,7 @@ const createPrideQuestHomeStyles = (dimensions) =>
             textAlign: 'left',
             color: 'white',
             fontSize: dimensions.width * 0.046,
-            fontFamily: molahFontPoppinsRegular,
+            fontFamily: prideFontPoppinsRegular,
             fontWeight: '600',
             marginLeft: dimensions.width * 0.03,
             marginTop: dimensions.height * 0.005,

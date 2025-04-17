@@ -24,7 +24,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import PrideDetailsModalComponent from '../components/PrideDetailsModalComponent';
 import PrideGameScreen from './PrideGameScreen';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 const molahFontPoppinsBold = 'Poppins-Bold';
 const molahFontPoppinsBlack = 'Poppins-Black';
 
@@ -118,7 +118,7 @@ const HomePrideQuestScreen = () => {
                 fontSize: dimensions.width * 0.075,
                 alignSelf: 'flex-start',
                 marginLeft: dimensions.width * 0.04,
-                fontFamily: molahFontPoppinsRegular,
+                fontFamily: prideFontPoppinsRegular,
                 fontWeight: 600,
                 marginBottom: dimensions.height * 0.02,
               }}>
@@ -139,7 +139,7 @@ const HomePrideQuestScreen = () => {
                   color: 'white',
                   fontSize: dimensions.width * 0.04,
                   alignSelf: 'flex-start',
-                  fontFamily: molahFontPoppinsRegular,
+                  fontFamily: prideFontPoppinsRegular,
                   fontWeight: 500,
                 }}>
                 Encyclopedia
@@ -176,7 +176,7 @@ const HomePrideQuestScreen = () => {
                       textAlign: 'left',
                       color: 'white',
                       fontSize: dimensions.width * 0.05,
-                      fontFamily: molahFontPoppinsRegular,
+                      fontFamily: prideFontPoppinsRegular,
                       fontWeight: 600,
                       marginLeft: dimensions.width * 0.04,
                     }}>
@@ -191,7 +191,7 @@ const HomePrideQuestScreen = () => {
                   color: 'white',
                   fontSize: dimensions.width * 0.04,
                   alignSelf: 'flex-start',
-                  fontFamily: molahFontPoppinsRegular,
+                  fontFamily: prideFontPoppinsRegular,
                   fontWeight: 500,
                   marginTop: dimensions.height * 0.04,
                 }}>
@@ -213,7 +213,7 @@ const HomePrideQuestScreen = () => {
                       textAlign: 'center',
                       color: 'white',
                       fontSize: dimensions.width * 0.04,
-                      fontFamily: molahFontPoppinsRegular,
+                      fontFamily: prideFontPoppinsRegular,
                       fontWeight: 500,
                     }}>
                     There are no animals in your pride yet...
@@ -268,7 +268,7 @@ const HomePrideQuestScreen = () => {
                               textAlign: 'left',
                               color: 'white',
                               fontSize: dimensions.width * 0.043,
-                              fontFamily: molahFontPoppinsRegular,
+                              fontFamily: prideFontPoppinsRegular,
                               fontWeight: 600,
 
                             }}>
@@ -280,7 +280,7 @@ const HomePrideQuestScreen = () => {
                             textAlign: 'left',
                             color: 'white',
                             fontSize: dimensions.width * 0.05,
-                            fontFamily: molahFontPoppinsRegular,
+                            fontFamily: prideFontPoppinsRegular,
                             fontWeight: 600,
                             marginLeft: dimensions.width * 0.04,
                           }}>
@@ -292,7 +292,7 @@ const HomePrideQuestScreen = () => {
                           textAlign: 'left',
                           color: 'rgba(255, 255, 255, 0.5)',
                           fontSize: dimensions.width * 0.043,
-                          fontFamily: molahFontPoppinsRegular,
+                          fontFamily: prideFontPoppinsRegular,
                           fontWeight: 400,
                           marginRight: dimensions.width * 0.04,
                         }}>
@@ -534,7 +534,7 @@ const createPrideQuestHomeStyles = (dimensions) => StyleSheet.create({
     textAlign: 'left',
     color: 'white',
     fontSize: dimensions.width * 0.04,
-    fontFamily: molahFontPoppinsRegular,
+    fontFamily: prideFontPoppinsRegular,
     fontWeight: 300,
     marginLeft: dimensions.width * 0.03,
     marginTop: dimensions.height * 0.02,
@@ -554,7 +554,7 @@ const createPrideQuestHomeStyles = (dimensions) => StyleSheet.create({
   pridePlaceHolderTextStyles: {
     maxWidth: dimensions.width * 0.75,
     color: 'white',
-    fontFamily: molahFontPoppinsRegular,
+    fontFamily: prideFontPoppinsRegular,
     fontWeight: 600,
     fontSize: dimensions.width * 0.04,
     textAlign: 'left',

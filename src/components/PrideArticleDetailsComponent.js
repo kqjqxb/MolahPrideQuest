@@ -3,23 +3,17 @@ import {
     View,
     Text,
     Dimensions,
-    SafeAreaView,
     StyleSheet,
     TouchableOpacity,
     Image,
-    Modal,
-    Switch,
     ScrollView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import lionArticlesData from '../components/lionArticlesData';
 
-const molahFontPoppinsRegular = 'Poppins-Regular';
-const molahFontPoppinsBold = 'Poppins-Bold';
-const molahFontPoppinsBlack = 'Poppins-Black';
-const prideFontInterRegular = 'Inter-Regular';
+const prideFontPoppinsRegular = 'Poppins-Regular';
 
-const PrideArticleDetailsComponent = ({ setSelectedPrideQuestScreen, setSelectedWindow, selectedArticle }) => {
+const PrideArticleDetailsComponent = ({ setSelectedWindow, selectedArticle }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isFavorite, setIsFavorite] = useState(false);
@@ -160,7 +154,7 @@ const PrideArticleDetailsComponent = ({ setSelectedPrideQuestScreen, setSelected
                                 textAlign: 'left',
                                 color: 'white',
                                 fontSize: dimensions.width * 0.035,
-                                fontFamily: molahFontPoppinsRegular,
+                                fontFamily: prideFontPoppinsRegular,
                                 fontWeight: '500',
                                 textTransform: 'uppercase',
                             }}>
@@ -173,7 +167,7 @@ const PrideArticleDetailsComponent = ({ setSelectedPrideQuestScreen, setSelected
                         textAlign: 'left',
                         color: 'white',
                         fontSize: dimensions.width * 0.037,
-                        fontFamily: molahFontPoppinsRegular,
+                        fontFamily: prideFontPoppinsRegular,
                         fontWeight: '400',
                         marginTop: dimensions.height * 0.01,
                     }}>
