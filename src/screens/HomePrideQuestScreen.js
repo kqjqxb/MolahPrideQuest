@@ -15,7 +15,7 @@ import {
 import PingoSettingsScreen from './PingoSettingsScreen';
 import PingoHowToPlayScreen from './PingoHowToPlayScreen';
 import PingoYourMomentsScreen from './PingoYourMomentsScreen';
-import PingoGameScreen from './PingoGameScreen';
+import MolahArticlesScreen from './MolahArticlesScreen';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 import homeAnimalsData from '../components/homeAnimalsData';
@@ -48,7 +48,7 @@ const prideQuestButtons = [
     prideQuestButtonImage: require('../assets/images/prideButtonImages/articlesImages.png'),
   },
   {
-    prideScreenQuest: 'WaterfallSettings',
+    prideScreenQuest: 'PrideSettings',
     prideTitleQuest: 'Settings',
     prideQuestButtonImage: require('../assets/images/prideButtonImages/settingsImage.png'),
   },
@@ -65,6 +65,7 @@ const HomePrideQuestScreen = () => {
   const [myPrides, setMyPrides] = useState([]);
   const [selectedPride, setSelectedPride] = useState(null);
   const [prideDetailsModalVisible, setPrideDetailsModalVisible] = useState(false);
+  const [prideNotificationsEnabled, setPrideNotificationsEnabled] = useState(false);
 
   useEffect(() => {
     const loadMyPrides = async () => {
@@ -82,6 +83,20 @@ const HomePrideQuestScreen = () => {
   }, [addLionModalVisible, prideDetailsModalVisible]);
 
 
+  useEffect(() => {
+    const loadPrideNotificationsSetting = async () => {
+      try {
+        const storedPrideNotifications = await AsyncStorage.getItem('prideNotificationsEnabled');
+        if (storedPrideNotifications !== null) {
+          setPrideNotificationsEnabled(JSON.parse(storedPrideNotifications));
+        }
+      } catch (error) {
+        console.error('Error loading pride notifications setting:', error);
+      }
+    };
+
+    loadPrideNotificationsSetting();
+  }, [])
 
 
   return (
@@ -310,12 +325,12 @@ const HomePrideQuestScreen = () => {
 
             </ScrollView>
           </SafeAreaView>
-        ) : selectedPrideQuestScreen === 'PingoSettings' ? (
+        ) : selectedPrideQuestScreen === 'PrideSettings' ? (
           <PingoSettingsScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} selectedPrideQuestScreen={selectedPrideQuestScreen} />
         ) : selectedPrideQuestScreen === 'PingoMoments' ? (
           <PingoYourMomentsScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} />
-        ) : selectedPrideQuestScreen === 'PingoGame' ? (
-          <PingoGameScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen}
+        ) : selectedPrideQuestScreen === 'PrideArticles' ? (
+          <MolahArticlesScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} prideNotificationsEnabled={prideNotificationsEnabled} setPrideNotificationsEnabled={setPrideNotificationsEnabled}
           />
         ) : selectedPrideQuestScreen === 'PingoRules' ? (
           <PingoHowToPlayScreen setSelectedPrideQuestScreen={setSelectedPrideQuestScreen} />
@@ -505,7 +520,7 @@ const HomePrideQuestScreen = () => {
                 <ArrowLeftIcon size={dimensions.width * 0.09} color='white' />
               </TouchableOpacity>
 
-              <PrideDetailsModalComponent setPrideDetailsModalVisible={setPrideDetailsModalVisible} setSelectedPride={setSelectedPride} selectedPride={selectedPride}/>
+              <PrideDetailsModalComponent setPrideDetailsModalVisible={setPrideDetailsModalVisible} setSelectedPride={setSelectedPride} selectedPride={selectedPride} />
 
             </SafeAreaView>
           </View>
