@@ -55,8 +55,8 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
                 type: lionTypeInput,
                 location: lionLocationInput,
                 dateOfBirth: lionDateInput,
-                notes: lionNotesInput,
-                action: lionActionInput,
+                notes: lionNotesInput ? lionNotesInput : 'No notes',
+                action: lionActionInput ? lionActionInput : 'No action',
                 image: lionImageInput,
             };
 
@@ -229,7 +229,7 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
             <View style={styles.pridePlaceHolderViewStyles}>
                 <TextInput
                     placeholder='Type'
-                    maxLength={30}
+                    maxLength={12}
                     placeholderTextColor='rgba(255, 255, 255, 0.6)'
                     value={lionTypeInput}
                     onChangeText={setLionTypeInput}

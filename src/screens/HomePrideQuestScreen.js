@@ -23,6 +23,7 @@ import { ArrowLeftIcon, PlusIcon, XMarkIcon } from 'react-native-heroicons/solid
 import LionDetailsModalComponent from '../components/LionDetailsModalComponent';
 import AddNewLionModalComponent from '../components/AddNewLionModalComponent';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import PrideDetailsModalComponent from '../components/PrideDetailsModalComponent';
 
 const molahFontPoppinsRegular = 'Poppins-Regular';
 const molahFontPoppinsBold = 'Poppins-Bold';
@@ -62,6 +63,8 @@ const HomePrideQuestScreen = () => {
   const [addLionModalVisible, setAddLionModalVisible] = useState(false);
   const styles = createPrideQuestHomeStyles(dimensions);
   const [myPrides, setMyPrides] = useState([]);
+  const [selectedPride, setSelectedPride] = useState(null);
+  const [prideDetailsModalVisible, setPrideDetailsModalVisible] = useState(false);
 
   useEffect(() => {
     const loadMyPrides = async () => {
@@ -76,7 +79,7 @@ const HomePrideQuestScreen = () => {
     };
 
     loadMyPrides();
-  }, [addLionModalVisible]);
+  }, [addLionModalVisible, prideDetailsModalVisible]);
 
 
 
@@ -206,8 +209,8 @@ const HomePrideQuestScreen = () => {
                 myPrides.map((pride, index) => (
                   <TouchableOpacity
                     onPress={() => {
-                      setSelectedAnimal(animal);
-                      setPrideModalVisible(true);
+                      setSelectedPride(pride);
+                      setPrideDetailsModalVisible(true);
                     }}
                     key={pride.id} style={{
                       width: dimensions.width * 0.93,
@@ -281,9 +284,7 @@ const HomePrideQuestScreen = () => {
                         }}>
                         {pride.dateOfBirth}
                       </Text>
-
                     </View>
-
                   </TouchableOpacity>
                 ))
               )}
@@ -469,6 +470,42 @@ const HomePrideQuestScreen = () => {
               </TouchableOpacity>
 
               <AddNewLionModalComponent setAddLionModalVisible={setAddLionModalVisible} />
+
+            </SafeAreaView>
+          </View>
+        </Modal>
+
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={prideDetailsModalVisible}
+          onRequestClose={() => {
+            setPrideDetailsModalVisible(!prideDetailsModalVisible);
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <SafeAreaView style={{
+              flex: 1,
+              backgroundColor: '#967228',
+            }}>
+              <TouchableOpacity
+                onPress={() => {
+                  setPrideDetailsModalVisible(false);
+                }}
+                style={{
+                  backgroundColor: '#FFC81F',
+                  width: dimensions.width * 0.17,
+                  height: dimensions.width * 0.17,
+                  borderRadius: dimensions.width * 0.1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  alignSelf: 'flex-start',
+                  marginLeft: dimensions.width * 0.03,
+                }}>
+                <ArrowLeftIcon size={dimensions.width * 0.09} color='white' />
+              </TouchableOpacity>
+
+              <PrideDetailsModalComponent setPrideDetailsModalVisible={setPrideDetailsModalVisible} setSelectedPride={setSelectedPride} selectedPride={selectedPride}/>
 
             </SafeAreaView>
           </View>
