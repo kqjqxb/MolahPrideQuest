@@ -80,19 +80,19 @@ const PrideGameScreen = ({ }) => {
         if (elements.every(el => el.id === elements[0].id)) {
             return { score: 500, tripleFound: true, mega: true };
         }
-        
+
         const rows = Math.ceil(elements.length / columns);
         let horizontalFound = false;
         let verticalFound = false;
         let pairCount = 0;
-        
+
         for (let i = 0; i < rows; i++) {
             const rowElements = elements.slice(i * columns, i * columns + columns);
             if (rowElements.length === columns && rowElements.every(el => el.id === rowElements[0].id)) {
                 horizontalFound = true;
             }
         }
-        
+
         for (let col = 0; col < columns; col++) {
             const colElements = [];
             for (let row = 0; row < rows; row++) {
@@ -105,13 +105,13 @@ const PrideGameScreen = ({ }) => {
                 verticalFound = true;
             }
         }
-        
+
         if (horizontalFound && verticalFound) {
             return { score: 100, tripleFound: true, mega: false };
         } else if (horizontalFound || verticalFound) {
             return { score: 50, tripleFound: true, mega: false };
         }
-        
+
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < columns; j++) {
                 const index = i * columns + j;
@@ -125,7 +125,7 @@ const PrideGameScreen = ({ }) => {
                 }
             }
         }
-        
+
         if (pairCount >= 3) {
             return { score: 20, tripleFound: false, mega: false };
         } else {
@@ -256,7 +256,14 @@ const PrideGameScreen = ({ }) => {
             ) : (
                 !isPrideGameFinished ? (
                     <View style={{ height: dimensions.height * 0.9 }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            // setIsPrideGameFinished(false);
+                            // setCurrentScore(0);
+                            // setCurrentSpinCount(0);
+                            // setShuffledElements(generateGridElements());
+                            // setIsPrideGameStarted(false);
+                            
+                        }}>
                             <XCircleIcon
                                 color={'#FF2C20'}
                                 size={dimensions.height * 0.07}
@@ -355,7 +362,8 @@ const PrideGameScreen = ({ }) => {
                             alignSelf: 'center',
                             backgroundColor: '#967228',
                             borderRadius: dimensions.width * 0.05,
-                            width: dimensions.width * 0.93,
+                            // width: dimensions.width * 0.93,
+                            width: dimensions.width * 1.6,
                             paddingHorizontal: dimensions.width * 0.04,
                             paddingVertical: dimensions.height * 0.02,
                             marginTop: dimensions.height * 0.1,

@@ -145,8 +145,10 @@ const HomePrideQuestScreen = () => {
               {homeAnimalsData.map((animal, index) => (
                 <TouchableOpacity
                   onPress={() => {
-                    setSelectedAnimal(animal);
-                    setPrideModalVisible(true);
+                    // setSelectedAnimal(animal);
+                    // setPrideModalVisible(true);
+
+                    openLionDetailsModal();
                   }}
                   key={animal.id} style={{
                     width: dimensions.width * 0.93,
