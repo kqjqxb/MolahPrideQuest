@@ -9,6 +9,7 @@ import {
     Image,
     Switch,
     ScrollView,
+    Pressable,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import lionArticlesData from '../components/lionArticlesData';
@@ -128,7 +129,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                         }}
                         showsVerticalScrollIndicator={false}>
 
-                        <View style={{
+                        <Pressable style={{
                             width: dimensions.width * 0.93,
                             alignSelf: 'center',
                             paddingHorizontal: dimensions.width * 0.04,
@@ -175,7 +176,7 @@ const PrideArticlesScreen = ({prideNotificationsEnabled, setPrideNotificationsEn
                                 }}>
                                 {dailyFact.fact}
                             </Text>
-                        </View>
+                        </Pressable>
 
                         <View style={[styles.prideFlexRowViewStyles, { marginVertical: dimensions.height * 0.03 }]}>
                             <Text

@@ -7,17 +7,17 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loadPingoCoupleUser = async () => {
+    const loadPrideUser = async () => {
       try {
-        const storedPingoCoupleUser = await AsyncStorage.getItem('currentUser');
-        if (storedPingoCoupleUser) {
-          setUser(JSON.parse(storedPingoCoupleUser));
+        const storedPrideUser = await AsyncStorage.getItem('currentUser');
+        if (storedPrideUser) {
+          setUser(JSON.parse(storedPrideUser));
         }
       } catch (error) {
-        console.error('Error loading storedPingoCoupleUser user:', error);
+        console.error('Error loading storedPrideUser user:', error);
       }
     };
-    loadPingoCoupleUser();
+    loadPrideUser();
   }, []);
 
   return (

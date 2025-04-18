@@ -25,8 +25,6 @@ import PrideDetailsModalComponent from '../components/PrideDetailsModalComponent
 import PrideGameScreen from './PrideGameScreen';
 
 const prideFontPoppinsRegular = 'Poppins-Regular';
-const molahFontPoppinsBold = 'Poppins-Bold';
-const molahFontPoppinsBlack = 'Poppins-Black';
 
 const prideFontInterRegular = 'Inter-Regular';
 

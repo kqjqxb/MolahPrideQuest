@@ -16,14 +16,11 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import { XMarkIcon } from 'react-native-heroicons/solid';
 
 const prideFontPoppinsRegular = 'Poppins-Regular';
-const molahFontPoppinsBold = 'Poppins-Bold';
-const molahFontPoppinsBlack = 'Poppins-Black';
 
 const prideFontInterRegular = 'Inter-Regular';
 
 const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
-    const [learnedPlaces, setLearnedPlaces] = useState([]);
     const styles = createPrideQuestHomeStyles(dimensions);
 
     const [lionNameInput, setLionNameInput] = useState('');
@@ -119,11 +116,9 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
     };
 
     const handleDateInputChange = (text) => {
-        // Remove non-digit characters
         const cleaned = text.replace(/[^\d]/g, '');
         let formatted = '';
 
-        // Extract year, month, and day parts
         let yearPart = cleaned.slice(0, 4);
         const currentYear = new Date().getFullYear();
         if (yearPart.length === 4 && parseInt(yearPart, 10) > currentYear) {
@@ -135,7 +130,6 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
         if (cleaned.length <= 4) {
             formatted = yearPart;
         } else if (cleaned.length <= 6) {
-            // Validate month if two digits are entered
             if (monthPart.length === 2) {
                 let monthNum = parseInt(monthPart, 10);
                 if (monthNum > 12) {
@@ -145,7 +139,6 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
             }
             formatted = `${yearPart}.${monthPart}`;
         } else {
-            // Validate month
             if (monthPart.length === 2) {
                 let monthNum = parseInt(monthPart, 10);
                 if (monthNum > 12) {
@@ -153,7 +146,6 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
                 }
                 monthPart = monthNum.toString().padStart(2, '0');
             }
-            // Validate day, using the max days for the given year and month
             if (dayPart.length === 2) {
                 let dayNum = parseInt(dayPart, 10);
                 const maxDay = getDaysInMonth(yearPart, monthPart);

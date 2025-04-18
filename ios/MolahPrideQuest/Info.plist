@@ -31,8 +31,10 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to the camera to take photos for lions images.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photo library to select images or videos for your lions.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter_18pt-Black.ttf</string>
@@ -40,15 +42,6 @@
 		<string>Inter_18pt-Medium.ttf</string>
 		<string>Inter_18pt-Regular.ttf</string>
 		<string>Inter_18pt-SemiBold.ttf</string>
-		<string>Nunito-Black.ttf</string>
-		<string>Nunito-Bold.ttf</string>
-		<string>Nunito-ExtraBold.ttf</string>
-		<string>Nunito-Light.ttf</string>
-		<string>Nunito-Medium.ttf</string>
-		<string>Nunito-Regular.ttf</string>
-		<string>Nunito-SemiBold.ttf</string>
-		<string>Play-Bold.ttf</string>
-		<string>Play-Regular.ttf</string>
 		<string>Poppins-Black.ttf</string>
 		<string>Poppins-ExtraBold.ttf</string>
 		<string>Poppins-Light.ttf</string>

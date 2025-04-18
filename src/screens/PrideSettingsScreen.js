@@ -7,22 +7,16 @@ import {
     SafeAreaView,
     TouchableOpacity,
     Image,
-    Share,
-    Alert,
     StyleSheet,
     Switch,
     Modal,
     Animated,
     Linking
 } from 'react-native';
-import { ChevronLeftIcon, ChevronRightIcon, StarIcon as SolidStarIcon } from 'react-native-heroicons/solid';
+import { ChevronRightIcon, StarIcon as SolidStarIcon } from 'react-native-heroicons/solid';
 import { StarIcon as OutlineStarIcon } from 'react-native-heroicons/outline';
 
-const fontNunitoBlack = 'Nunito-Black';
 const prideFontPoppinsRegular = 'Poppins-Regular';
-const molahFontPoppinsBold = 'Poppins-Bold';
-const molahFontPoppinsBlack = 'Poppins-Black';
-const prideFontInterRegular = 'Inter-Regular';
 
 const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsEnabled }) => {
     const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -43,15 +37,6 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
         }
     }, [rateModalVisible]);
 
-    const sharePingoApp = async () => {
-        try {
-            await Share.share({
-                message: `Join Pingo Questions for Couples! A fun game to get to know each other better. Download it now!`,
-            });
-        } catch (error) {
-        }
-    };
-
     const renderStars = () => {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
@@ -70,7 +55,7 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
     const saveRating = () => {
         setRateModalVisible(false);
         setRating(0);
-        Linking.openURL(`https://google.com`);
+        Linking.openURL(`https://apps.apple.com/us/app/molah-pride-quest/id6744814642`);
 
     };
 
@@ -137,7 +122,9 @@ const PrideSettingsScreen = ({ prideNotificationsEnabled, setPrideNotificationsE
             </View>
 
             <TouchableOpacity style={[styles.prideFlexRowViewStyles, { marginTop: dimensions.height * 0.03 }]}
-                onPress={sharePingoApp}>
+                onPress={() => {
+                    Linking.openURL('https://www.termsfeed.com/live/246251fc-0aa5-4f3a-8f63-26705af57a76');
+                }}>
                 <Text
                     style={{
                         textAlign: 'left',

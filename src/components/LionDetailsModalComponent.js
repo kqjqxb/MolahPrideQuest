@@ -17,7 +17,6 @@ const LionDetailsModalComponent = ({ selectedAnimal }) => {
     const [learnedPlaces, setLearnedPlaces] = useState([]);
     const styles = createPrideQuestHomeStyles(dimensions);
 
-    // Load learnedPlaces array from AsyncStorage on mount
     useEffect(() => {
         const loadLearnedPlaces = async () => {
             try {

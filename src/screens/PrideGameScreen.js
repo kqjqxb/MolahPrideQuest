@@ -7,7 +7,6 @@ import {
     SafeAreaView,
     TouchableOpacity,
     Image,
-    Alert,
     StyleSheet,
     Modal,
     Animated,
@@ -15,11 +14,7 @@ import {
 } from 'react-native';
 import { XCircleIcon } from 'react-native-heroicons/solid';
 
-const fontNunitoBlack = 'Nunito-Black';
 const prideFontPoppinsRegular = 'Poppins-Regular';
-const prideFontPoppinsMedium = 'Poppins-Medium';
-const molahFontPoppinsBlack = 'Poppins-Black';
-const prideFontInterRegular = 'Inter-Regular';
 
 const gameElements = [
     {
