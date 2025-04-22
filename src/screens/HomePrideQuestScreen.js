@@ -23,33 +23,11 @@ import AddNewLionModalComponent from '../components/AddNewLionModalComponent';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PrideDetailsModalComponent from '../components/PrideDetailsModalComponent';
 import PrideGameScreen from './PrideGameScreen';
+import { BookOpenIcon, Cog8ToothIcon, HomeIcon, PuzzlePieceIcon } from 'react-native-heroicons/outline';
 
 const prideFontPoppinsRegular = 'Poppins-Regular';
 
 const prideFontInterRegular = 'Inter-Regular';
-
-const prideQuestButtons = [
-  {
-    prideScreenQuest: 'Home',
-    prideTitleQuest: 'Home',
-    prideQuestButtonImage: require('../assets/images/prideButtonImages/homeImage.png'),
-  },
-  {
-    prideScreenQuest: 'PrideGame',
-    prideTitleQuest: 'Game',
-    prideQuestButtonImage: require('../assets/images/prideButtonImages/gameImage.png'),
-  },
-  {
-    prideScreenQuest: 'PrideArticles',
-    prideTitleQuest: 'Articles',
-    prideQuestButtonImage: require('../assets/images/prideButtonImages/articlesImages.png'),
-  },
-  {
-    prideScreenQuest: 'PrideSettings',
-    prideTitleQuest: 'Settings',
-    prideQuestButtonImage: require('../assets/images/prideButtonImages/settingsImage.png'),
-  },
-];
 
 
 const HomePrideQuestScreen = () => {
@@ -63,6 +41,33 @@ const HomePrideQuestScreen = () => {
   const [selectedPride, setSelectedPride] = useState(null);
   const [prideDetailsModalVisible, setPrideDetailsModalVisible] = useState(false);
   const [prideNotificationsEnabled, setPrideNotificationsEnabled] = useState(false);
+
+  const prideQuestButtons = [
+    {
+      prideScreenQuest: 'Home',
+      prideTitleQuest: 'Home',
+      icon: <HomeIcon size={dimensions.width * 0.08} color='white' />,
+      prideQuestButtonImage: require('../assets/images/prideButtonImages/homeImage.png'),
+    },
+    {
+      prideScreenQuest: 'PrideGame',
+      prideTitleQuest: 'Game',
+      icon: <PuzzlePieceIcon size={dimensions.width * 0.08} color='white' />,
+      prideQuestButtonImage: require('../assets/images/prideButtonImages/gameImage.png'),
+    },
+    {
+      prideScreenQuest: 'PrideArticles',
+      prideTitleQuest: 'Articles',
+      icon: <BookOpenIcon size={dimensions.width * 0.08} color='white' />,
+      prideQuestButtonImage: require('../assets/images/prideButtonImages/articlesImages.png'),
+    },
+    {
+      prideScreenQuest: 'PrideSettings',
+      prideTitleQuest: 'Settings',
+      icon: <Cog8ToothIcon size={dimensions.width * 0.08} color='white' />,
+      prideQuestButtonImage: require('../assets/images/prideButtonImages/settingsImage.png'),
+    },
+  ];
 
   useEffect(() => {
     const loadMyPrides = async () => {
@@ -380,7 +385,7 @@ const HomePrideQuestScreen = () => {
                 justifyContent: 'center',
                 paddingTop: dimensions.height * 0.01,
               }}>
-                <Image
+                {/* <Image
                   source={prideButton.prideQuestButtonImage}
                   style={{
                     height: dimensions.height * 0.02999,
@@ -388,7 +393,8 @@ const HomePrideQuestScreen = () => {
                     width: dimensions.height * 0.02999,
                   }}
                   resizeMode="contain"
-                />
+                /> */}
+                {prideButton.icon}
               </View>
 
               <Text
