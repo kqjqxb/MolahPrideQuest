@@ -257,11 +257,11 @@ const PrideGameScreen = ({ }) => {
                 !isPrideGameFinished ? (
                     <View style={{ height: dimensions.height * 0.9 }}>
                         <TouchableOpacity onPress={() => {
-                            // setIsPrideGameFinished(false);
-                            // setCurrentScore(0);
-                            // setCurrentSpinCount(0);
-                            // setShuffledElements(generateGridElements());
-                            // setIsPrideGameStarted(false);
+                            setIsPrideGameFinished(false);
+                            setCurrentScore(0);
+                            setCurrentSpinCount(0);
+                            setShuffledElements(generateGridElements());
+                            setIsPrideGameStarted(false);
                             
                         }}>
                             <XCircleIcon
@@ -362,8 +362,7 @@ const PrideGameScreen = ({ }) => {
                             alignSelf: 'center',
                             backgroundColor: '#967228',
                             borderRadius: dimensions.width * 0.05,
-                            // width: dimensions.width * 0.93,
-                            width: dimensions.width * 1.6,
+                            width: dimensions.width * 0.93,
                             paddingHorizontal: dimensions.width * 0.04,
                             paddingVertical: dimensions.height * 0.02,
                             marginTop: dimensions.height * 0.1,

@@ -48,7 +48,7 @@ const PrideFavoritesComponent = ({ favorites, savedPrideFacts, setSelectedWindow
         <SafeAreaView style={{ flex: 1, width: dimensions.width }}>
             <View style={styles.prideFlexRowViewStyles}>
                 <TouchableOpacity onPress={() => {
-                    // setSelectedWindow('');
+                    setSelectedWindow('');
                 }}>
                     <Image
                         source={require('../assets/icons/backPrideIcon.png')}
