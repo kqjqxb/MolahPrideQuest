@@ -53,9 +53,10 @@ const LoadingPrideQuestAppScreen = () => {
       <Image
         source={require('../assets/images/loadingMolahImage.png')}
         style={{
-          width: '80%',
-          height: '40%',
+          width: '90%',
+          height: '50%',
         }}
+        resizeMode='contain'
       />
     </View>
   );

@@ -336,7 +336,7 @@ const AddNewLionModalComponent = ({ setAddLionModalVisible }) => {
                     width: dimensions.width * 0.93,
                     height: dimensions.height * 0.07,
                     position: 'absolute',
-                    bottom: 0,
+                    bottom: dimensions.height * 0.05,
                     backgroundColor: !isCanNext ? 'rgba(255, 200, 31, 0.25)' : '#FFC81F',
                     borderRadius: dimensions.width * 0.03,
                     alignItems: 'center',
